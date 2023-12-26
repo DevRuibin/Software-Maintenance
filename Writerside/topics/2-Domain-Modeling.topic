@@ -5,5 +5,169 @@
        xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
        title="2.Domain Modeling" id="2-Domain-Modeling">
 
-    <p>Start typing here...</p>
+    <list type="decimal">
+        <li>
+            <p>
+                What is domain modelling, why is it important, what is a domain, give some examples of domains.
+            </p>
+            <p>
+                Domain modelling describes the problems to be addressed by the software in the domain
+            </p>
+            <p>
+                One of the things that makes software development complex is the essential intricacy of the problem domain. The key
+                to control this complexity is domain modelling.
+            </p>
+            <p>
+                Every software program relates to some activities of interest for its users. That subject area to which
+                the user applies the program is the domain of the software. <b>For example:</b>
+            </p>
+            <list>
+                <li><b>Airline booking</b> software is about people getting on aircraft</li>
+                <li><b>Accounting software</b> is finance and money</li>
+                <li><b>Source-code versioning</b> system is software development and source code of programs </li>
+            </list>
+            
+
+        </li>
+        <li>
+            <p>Define, in your own words, what a software product line is.</p>
+            <p>
+                Software Product Line(SPL) is about building a family of software systems which sharing a set of common features
+                and satisfy the needs of a particular domain. In the economical view, SPL saves costs from using technology
+                to build a greater diversity of outputs with the same or fewer outputs.
+
+            </p>
+        </li>
+        <li>
+            <p>
+                Explain the difference between economies of scale and economies of scope, in the context of software product lines.
+            </p>
+            <tabs>
+                <tab title="scale">
+                    <p>
+                        Saving from using technology to produce a greater volume of a single output with the same or fewer
+                        inputs
+                    </p>
+                </tab>
+                <tab title="scope">
+                    <p>
+                        Saving from using technology to produce a greater diversity of outputs with the same or fewer inputs.
+                    </p>
+                </tab>
+            </tabs>
+        </li>
+        <li>
+            <p>
+                Explain the main purpose of domain analysis. Explain and discuss the different phases of the domain analysis process.
+            </p>
+
+            <tabs>
+                <tab title="Main Purpose">
+                    <list>
+                        <li>Capture domain knowledge of experts for related class of systems</li>
+                        <li>Supports software reuse by capturing domain expertise and understanding</li>
+                        <li>Methods for discovering and representing commonalities among related software systems</li>
+                    </list>
+                </tab>
+                <tab title="Domain Analysis Process">
+                    <list>
+                        <li>Context analysis defines the extent of the domain under analysis</li>
+                        <li>Domain modeling describes the problems to be addressed by the software in the domain</li>
+                        <li>Architectural modeling creates the overall software architecture to implement a solution to
+                            the problems in that domain
+                        </li>
+                    </list>
+                </tab>
+            </tabs>
+
+        </li>
+        <li>
+            <p>
+                What is feature-oriented domain analysis (FODA)? What is its goal?
+                What is a feature?
+                How does this relate to software product lines? Explain.
+            </p>
+            <p>
+                FODA is a technique for modeling the common and variable aspects of systems. The primary focus is the identification
+                of prominent or distinctive features of software systems in the domain.
+            </p>
+            <p>
+                Features are "user-visible aspects or characteristics" of a particular application domain. It describes a
+                mandatory, optional, or alternative characteristic of these related systems.
+            </p>
+            <p>
+                Feature-Oriented Domain Analysis (FODA) is a systematic approach in software engineering that offers a comprehensive and reusable description of system requirements within a specific domain. It identifies commonalities across various systems, paving the way for the development of software product lines. This method enables developers to create reusable components for common features, significantly enhancing efficiency. For instance, in a domain like mobile banking apps, FODA helps in identifying and developing reusable components for standard features like transaction history or balance checks. These components can then be employed across multiple banking apps, streamlining development processes and reducing costs.
+            </p>
+
+        </li>
+        <li><p>Explain and illustrate, on a simple example, the feature modelling notation (as well as the different kinds of feature relationships, feature dependencies and cross-tree constraints).</p>
+            <p>The feature modelling notion is typically used in domain analysis and SPL, to express the commonalities
+                and variabilities of a system's family in terms of the features they may offer. A feature model has a tree-like
+                architecture where the nodes represent features.
+            </p>
+            <tabs>
+                <tab title="Dependencies">
+                    <list>
+                        <li>Mandatory features must be selected whenever their parent is. It is used to express commonalities in the domain.</li>
+                        <li>Optional features can be selected but don't have to. It is used to express variabilities in the domain.</li>
+
+                    </list>
+                </tab>
+                <tab title="Relationships">
+                    <list>
+                        <li>Alternative features: only one of these sub features can be selected</li>
+                        <li>Or features: One or more sub features can be selected. At least one, but several are allowed too.</li>
+                    </list>
+
+                </tab>
+                <tab title="Cross tree constraints">
+                    Cross tree constraints are relationships are not directly related in the hierarchy of the feature tree.
+                    <list>
+                        <li>Requires or implies: when the inclusion of one feature depends on the inclusion of others</li>
+                        <li>Exclusion: when two features can't coexist</li>
+                    </list>
+                </tab>
+            </tabs>
+            <p>Here is the example:</p>
+            <img alt="FeatureModelOfAMobilePhone.png" src="FeatureModelOfAMobilePhone.png"/>
+        </li>
+
+        <li><p>What is a configuration of a feature model? When is a configuration said to be valid? Explain and illustrate on an example. When is a feature model inconsistent?</p>
+            <p>A configuration is an instance of the feature model with a set of feature selected.</p>
+            <p>A configuration is valid if it respects the semantics imposed by the relationships and constraints:
+            </p>
+            <list>
+                <li>mandatory features must be selected</li>
+                <li>Optional features may be selected</li>
+                <li>Exactly one must be selected for alternative features</li>
+                <li>At most one of exclusive features, etc.</li>
+            </list>
+            <p>A feature model is inconsistent if it has no valid configurations.</p>
+        </li>
+        <li>
+            <p>Explain, in the context of feature modelling, the notions of commonality and variability.
+            Illustrate with a concrete example.</p>
+            <p>A commonality is a feature that appears in all the model's valid configurations.</p>
+            <p>A variability is a feature that appears only in some of the configurations.</p>
+            <tip>
+                All cars must have the body, engine, and transmission. But some cars have a hook to pull a trailer.
+            </tip>
+
+        </li>
+        <li><p>What is a feature model anomaly?
+            What kinds of feature model anomalies exist?
+            Give a concrete example of each on a simple feature model.</p>
+            <p>An anomaly in a feature model is either a redundancy or inconsistency in a model</p>
+            <b>Anomalies</b>
+            <list>
+                <li>Dead features: if they can never be selected in any variant of the product line.</li>
+                <li>False optional features: If the selection of its parent makes the feature itself selected as well, even though
+                    it is defined as optional or not mandatory.
+                </li>
+                <li>Redundant Constraints: A cross tree constraint is redundant if its removal does not change the validity of the feature model's configurations
+                </li>
+                <li>Void Feature Models: A feature model for which it is not possible to to derive any valid configuration</li>
+            </list>
+        </li>
+    </list>
 </topic>
