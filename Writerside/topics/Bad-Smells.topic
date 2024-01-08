@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Bad Smells" id="Bad-Smells">
+
+    <list type="decimal">
+        <li>Define in your own words what a bad smell is. Give some examples.</li>
+        <li>What bad smell is considered as the number 1 top crime? Why? Explain and exemplify this bad smell in detail.</li>
+        <li>Even though it is a good rule of thumb to always avoid code duplica- tion, the seminal article “ “Cloning considered harmful” considered harmful: patterns of cloning” explains several patterns of cloning where cloning code could actually be considered as having a good im- pact on maintainability. Give at least one such example.</li>
+        <li>
+            Explain and illustrate the Long Method bad smell.</li>
+        <li>Explain and illustrate the Feature Envy bad smell.</li>
+        <li>Explain and illustrate the Middle Man bad smell.</li>
+        <li>Explain the Long Parameter List and Data Clumps bad smells in de- tail.
+            Why are they bad smells?
+            Whats the relation between these bad smells?</li>
+        <li>
+            Explain and illustrate what “coupling” is.
+            Should we strive for loose coupling or tight coupling?
+            What bad smell describes a situation that violates this principle? Name and explain at least one.</li>
+        <li>Explain and illustrate what “cohesion” is.
+            Should we strive for low cohesion or high cohesion?
+            What bad smell describes a situation that violates this principle? Name and explain at least one.</li>
+        <li>Some bad smells are based on the principle that “things that change together should go together”.
+            Explain two such bad smells, and the above principle on which they are based, in detail.
+        </li>
+        <li>
+            Name and explain at least one bad smell that explains a problem related to bad use of inheritance.</li>
+        <li>
+            When talking about “Comments” in the bad smells theory session, it was stated that comments are sometimes just there because the code is bad. Can you give an example of this and how such comments could become superfluous simply by refactoring the code?</li>
+
+    </list>
+</topic>

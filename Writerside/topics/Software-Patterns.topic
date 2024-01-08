@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Software Patterns" id="Software-Patterns">
+
+    <list type="decimal">
+        <li>
+            What do Christopher Alexander’s (building) architectural patterns and (software) design patterns have in common?
+            Explain with a concrete example.</li>
+        <li>Give a definition of the notion of design pattern.</li>
+        <li>What are design patterns good for and why?
+            Why cannot you say I have invented a design pattern? Explain.</li>
+        <li>Explain the different parts of which a design pattern description typ- ically exists.</li>
+        <li>Explain and illustrate the Abstract Factory design pattern in detail. Clearly mention its problem, solution, participants, structure and ap- plicability.</li>
+        <li>Explain the Factory Method design pattern in detail.
+            Clearly mention its Intent, Motivation, Applicability, Participants, Collaboration, Consequences and Implementation.</li>
+        <li>
+            Explain the Strategy design pattern in detail.
+            Clearly mention its Intent, Motivation, Applicability, Participants, Collaboration, Consequences and Implementation.</li>
+        <li>
+            Explain the Decorator design pattern in detail.
+            Clearly mention its Intent, Motivation, Applicability, Participants, Collaboration, Consequences and Implementation.</li>
+        <li>What is an antipattern?
+            How does it compare to a design pattern? What purpose does it serve?</li>
+        <li>lecture6/Explain at least 4 of the 7 lecture6/deadly sins related to antipatterns:</li>
+        <li>
+            Explain The Blob antipattern.</li>
+        <li>What are linguistic antipatterns? Give a concrete example. Why do linguistic antipatterns cause confusion? Give at least one concrete example.</li>
+
+    </list>
+</topic>

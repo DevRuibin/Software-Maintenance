@@ -8,6 +8,10 @@
 
     <toc-element topic="1-Introduction.md"/>
     <toc-element topic="2-Domain-Modeling.topic"/>
+    <toc-element topic="Context-aware-software-development.topic"/>
+    <toc-element topic="Software-Reuse.topic"/>
+    <toc-element topic="Software-Patterns.topic"/>
+    <toc-element topic="Bad-Smells.topic"/>
     <toc-element topic="Default-topic.md"/>
     <toc-element topic="Tutorial.topic"/>
 </instance-profile>

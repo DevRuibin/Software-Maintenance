@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic id="Software-Reuse"
+       title="Software Reuse"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd">
+
+    <list type="decimal">
+        <li><p>Define and illustrate the notions of software reuse, reusability and reusable components.
+        </p>
+            <list>
+                <li>Software reusability is the degree to which a software module or other products can be used in more
+                    than
+                    one software systems
+                </li>
+                <li>Software reuse is the process of implementing new software systems using existing software
+                    informations.
+                </li>
+                <li>Reusable components: A software components designed and implemented for the specific purpose of
+                    being used.
+                </li>
+            </list>
+        </li>
+
+        <li><p>Give 2 economic and 2 intellectual justifications for software reuse. Explain in detail.
+        </p>
+            <list>
+                <li>
+                    More Productive by avoiding double work
+                </li>
+                <li>
+                    Better quality by reusing good solutions
+                </li>
+                <li>Cost reduction because less work but better quality</li>
+            </list>
+            <list>
+                <li>stand on each other's shoulders</li>
+                <li>don't re-implement or re-design old stuff</li>
+                <li>Focus on what is new and relevant</li>
+            </list>
+        </li>
+        <li><p>Give and explain at least 3 different software reuse techniques seen throughout the course.
+        </p>
+            <list>
+                <li>Programming abstraction and mechanisms</li>
+                <li>Design patterns</li>
+                <li>Software architecture: It capture the frequent software architecture in so-called templates designed to be
+                reused by the programmers. For instance, The client-server architecture.</li>
+                <li>Software libraries and frameworks: Implementation of techniques used to create software families.</li>
+                <li>Generative programming and model-driven development</li>
+            </list>
+        </li>
+
+        <li><p>How and why does object-oriented programming promote modularity and maintainability?
+        </p>
+            <p>Because of its abstraction mechanisms</p>
+            <list>
+                <li><p>Encapsulation: Keep data and operation that act on this data stay together</p></li>
+                <li><p>Information hiding: Isolate and hide design and implementation details and choices</p></li>
+                <li><p>Polymorphism: Allow for different implementations of a same design to co-exist.</p></li>
+                <li><p>Code sharing: Capture and exploit similarities in data and behavior. (through inheritance)</p></li>
+            </list>
+
+        </li>
+        <li><p>Explain the object-oriented techniques of encapsulation, information hiding, polymorphism and code sharing
+            and how they relate to software reusability.
+        </p>
+            <list>
+                <li><p>encapsulation</p>
+                    <p>It makes it easy to reuse an object in different contexts, since it contains its own actions and corresponding data
+                    Also, a well designed class with little coupling with others can be considered as a small module that can be
+                        easily used in another applications
+                    </p>
+                </li>
+                <li><p>information hiding</p>
+                    <p>People can reuse the interface, while leaving the flexibility to change the implementation details</p>
+                </li>
+                <li><p>polymorphism</p>
+                    <list>
+                        <li>Cleaner and more maintainable code by reducing the name number</li>
+                        <li>Less need for conditions</li>
+                    </list>
+                </li>
+                <li><p>code sharing</p>
+                    <list>
+                        <li><p>Class enable sharing behavior among objects</p></li>
+                        <li><p>Class hierarchies and inheritance enable reuse of class definitions, since a sub-class
+                        inherits the definition of all methods and declaration of all its super class's variables</p></li>
+                    </list>
+                </li>
+            </list>
+        </li>
+        <li><p>Explain, using a concrete example, what polymorphism and dynamic binding (or late binding) are, and how they
+            can help in obtaining more maintainable code.
+        </p>
+            <list>
+                <li><p>Polymorphism</p>
+                    <p> A same message can be sent to objects of different classes</p>
+                    <code-block lang="java">
+                        class Shape{
+                            public void draw()
+                        }
+                        class Circle extends Shape{
+                            public void draw();
+                        }
+                        class Rectangle extends Shape{
+                            public void draw();
+                        }
+                    </code-block>
+                </li>
+                <li><p>Dynamic binding</p>
+                    <p> When sending a message, the actual receiver is not necessaries known until run time.</p>
+                    <list>
+                        <li>Overridden method: Run time</li>
+                        <li>Overload method, private, static, final method: compile time</li>
+                    </list>
+                </li>
+            </list>
+            <p>
+                Advantages:
+            </p>
+            <list>
+                <li>
+                    Less different names
+                </li>
+                <li>Less need for conditions</li>
+                <li>More implementation freedom: Each class can decide how best to implement a method</li>
+                <li>Locality: Each class is responsible for its own actions. </li>
+            </list>
+        </li>
+        <li><p>Explain on a concrete example the concepts of method overriding, self and super calls. What’s the difference
+            between overriding and overwriting?
+        </p>
+            <list>
+                <li>Method overriding: Subclasses can re-implement methods those are already implemented by its super class.</li>
+                <li>Self calls to the reference of the receiver object</li>
+                <li>Super calls to the reference of the implementation's parent class</li>
+            </list>
+            <p>A Overridden method can either overwrite a method with a completely new implementation Or can specialize the behavior
+            of the behavior defined in its superclass</p>
+
+            <p>Another point of view:
+            </p>
+            <p>
+                1. Actions and decisions are overriden.
+                <br/>
+                2. Information is overwritten.
+            </p>
+
+        </li>
+        <li><p>
+            How can abstract classes and methods improve reusability? Explain and illustrate with a concrete example.
+        </p>
+            <p>An abstract class gathers common traits shared by other classes. It isn't meant to have instances of its own.
+            It can offer certain method implementations, like default, partial, or complete methods shared by other classes.
+            It can also define abstract methods with no implementation and all sub-classes must implement it.</p>
+            <p>Abstract class make it easier to reuse code by offering template code for creating new subclasses. These subclasses
+            automatically inherit all the implemented methods from the superclass. Moreover, these subclasses can
+            choose whether to customize some of their inherited methods by overriding them if necessary.</p>
+        </li>
+        <li><p>Explain, using a concrete example, how a multiple inheritance problem could be modelled in terms of single
+            inheritance on classes and interfaces in Java.
+        </p>
+            <code-block lang="java" >
+                class Truck{
+                }
+                interface Kitchen{
+                }
+                class KitchenImpl{
+                }
+                @AllArgsConstructor
+                class FoodTruck extends Truck{
+                    private Kitchen;
+                }
+            </code-block>
+        </li>
+
+    </list>
+</topic>

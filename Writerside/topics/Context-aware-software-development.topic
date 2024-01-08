@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+       title="Context-aware software development" id="Context-aware-software-development">
+
+    <list type="decimal">
+        <li><p>What is the main difference between traditional software systems and context-aware systems?
+        </p>
+            <p>Traditionally, hardware and software are input-output systems that took input explicitly given by
+            a human and acted upon that input alone to produce an explicit output.</p>
+            <p>A software system is context-aware if it can extract, interpret, and use context information and adopt its
+            functionality to the current context of use.</p>
+        </li>
+
+        <li><p>Explain, in your own words, what problems context-oriented programming tries to solve.
+            Illustrate with a concrete example</p>
+            <p>We believe that future applications should become more aware of their execution context, and should adapt
+            dynamically to such context to provide services that match their clients' need to the best extent possible. </p>
+            <p>Image a smart message application whose purpose is to allow users to call each other. A traditional would
+            implement a notification system that is independent of the environment. Therefore, if the user is in a meeting,
+            the notification could disturb the meeting. At best, there is an option to toggle the sound notification. However,
+            this relies on the input. On the other hand, a COP approach would detect the context and automatically toggle
+            the sound notification without having to rely on the input.</p>
+        </li>
+
+        <li><p>Explain, in your own words, what context-oriented programming is.
+            </p>
+            <p>
+                To develop a software system that can dynamically adapt their behavior to the current execution context
+                and can provide the most appropriate behavior according to their context.
+            </p>
+        </li>
+        <li><p>Define, explain and illustrate what the notion of context is in context-oriented programming.</p>
+            <p>
+                Usually, the system has to access various data about the environment and the system itself: CPU frequency,
+                User agent, geo-position and sound level. For example, if the user agent contains "Mozilla Firefox V2485959",
+                A well-defined context name could be "Browser Firefox". Another example is that if the measured system velocity
+                is greater than 10 meters per second, we could consider that the system is in the context of "Running" or "Driving".
+            </p>
+        </li>
+
+        <li><p>Explain the (potential) need for context-oriented programming.</p>
+            <p>Current programming techniques and design principles invite programmers to think in a way that is mostly
+            obvious of the physical, technical, and human environment where the software will be used. Many chances of
+            delivering improved services thus are missed</p>
+            <p>A new paradigm is needed that helps overcome this limits by putting the programmers in the right mind state
+            to build dynamically adaptable application from ground up. This paradigm is Context-Oriented programming</p>
+        </li>
+        <li><p>What are the advantages of using a context-oriented programming language over more traditional implementation techniques to achieve dynamic adaptation of software behaviour to context?
+        </p>
+            <p>
+                Context-Oriented programming offer several advantages over traditional implementation techniques when it comes to
+                dynamically adapt software behavior to different contexts. The current programming tools often fall short
+                in addressing the needs of adaptive systems because they overlook the runtime environment.
+            </p>
+
+        </li>
+
+        <li><p>Explain and illustrate how feature diagrams with context variability can be used to model multiple product lines for software supply chains.
+        </p>
+            <p>By defining various contexts and features, a supply chain can easily represent multiple product lines. For example,
+            a plan factory could identify different features like supersonic engines, traditional engines and guns. This allows the
+            factory to model both military aircraft and commercial planes for airline companies.</p>
+        </li>
+
+        <li><p>Explain and illustrate the Feature-based Context-Oriented Architecture and how it can be used to build software systems that can dynamically adapt their behaviour to surrounding contexts
+        </p>
+            <p>By defining the features, we can extract the commonalities of the software and therefore build the architecture
+            easily through the conception of the entity model</p>
+        </li>
+
+
+
+        <li>Describe a small worked-out example of a feature-based context-oriented program and how it dynamically adapts its behaviour to surrounding contexts.</li>
+        <li><p>
+            Explain the development methodology which we proposed to design feature-based context-oriented systems. Feel free to highlight which aspects of this methodology you used and liked and which were less useful for you when designing such a system.
+        </p>
+            <list type="bullet">
+                <li>Requirement: This is where we define all the contexts, features, lexicons, and rational for the model</li>
+                <li>Design: This steps involves the actual design of feature model, context model and mapping model</li>
+                <li>Implementation: Focus on implementing the software</li>
+                <li>Test: To check if the software has the expected behavior</li>
+            </list>
+        </li>
+
+
+    </list>
+</topic>
