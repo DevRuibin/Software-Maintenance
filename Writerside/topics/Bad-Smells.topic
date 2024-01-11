@@ -6,30 +6,226 @@
        title="Bad Smells" id="Bad-Smells">
 
     <list type="decimal">
-        <li>Define in your own words what a bad smell is. Give some examples.</li>
-        <li>What bad smell is considered as the number 1 top crime? Why? Explain and exemplify this bad smell in detail.</li>
-        <li>Even though it is a good rule of thumb to always avoid code duplica- tion, the seminal article “ “Cloning considered harmful” considered harmful: patterns of cloning” explains several patterns of cloning where cloning code could actually be considered as having a good im- pact on maintainability. Give at least one such example.</li>
-        <li>
-            Explain and illustrate the Long Method bad smell.</li>
-        <li>Explain and illustrate the Feature Envy bad smell.</li>
-        <li>Explain and illustrate the Middle Man bad smell.</li>
-        <li>Explain the Long Parameter List and Data Clumps bad smells in de- tail.
+        <li><p>Define in your own words what a bad smell is. Give some examples.
+        </p>
+            <p>It indicates that your code is ripe for refactoring</p>
+            <list>
+                <li>Your struggle to add new fetures</li>
+                <li>Your copy and paste some of your own code</li>
+                <li>You start using multiple inheritance</li>
+                <li>Your code is too difficult to debug</li>
+                <li>Your class is too large</li>
+            </list>
+        </li>
+        <li><p>What bad smell is considered as the number 1 top crime? Why? Explain and exemplify this bad smell in detail.
+        </p>
+            <p>Duplicated code is the number 1 top crime.</p>
+            <p>What is duplicated code: we have the same or very similar code in multiple place of one code base</p>
+            <p>A fundamental rule of thumb: It is always better to have a unified code</p>
+            <p>
+                Below is about how ot solve this problem
+            </p>
+            <list>
+                <li><p>If the same code is found in two subclasses of the same level: </p>
+                    <list>
+                        <li>Use <i>Extract Method</i> for both classes, followed by <i>Pull up Field</i> for the fields used
+                        in the same method that you are pulling up.</li>
+                        <li>If the duplicate code is inside a constructor, <i>Pull up Constructor Body</i></li>
+                        <li>If the duplicate code is similar but not completely identical, use <i>Form Template method</i></li>
+                        <li>If the two methods do the same thing but use different algorithms, select the best algorithm
+                        and apply <i>Substitute Algorithm</i></li>
+                    </list>
+                </li>
+                <li><p>If duplicate code is found in two different classes:</p>
+                    <list>
+                        <li>If the class are not part of a hierarchy, use <i>Extract Superclass</i> in older to create a
+                            single super class for these classes that maintains all the previous functionality</li>
+                        <li>If it is difficult or impossible to create a superclass, use <i>Extract class</i> in one class and use the new component in the other</li>
+                    </list>
+                </li>
+                <li><p>If a large number of conditional expressions are present and perform the same code, merge these operators
+                into a single condition using <i>Consolidate Conditional Expression</i> and use <i>Extract Method</i> to
+                place the condition in a separate method with an easy-to-understand name</p></li>
+                <li><p>If the same code is performed in all branches of a conditional expression: place the identical code
+                outside of the condition tree by using <i>Consolidate Duplicate Conditional Fragments</i></p></li>
+            </list>
+        </li>
+
+        <li><p>Even though it is a good rule of thumb to always avoid code duplication, the seminal article “ “Cloning considered harmful” considered harmful: patterns of cloning” explains several patterns of cloning where cloning code could actually be considered as having a good im- pact on maintainability.
+            Give at least one such example.
+        </p>
+            <list>
+                <li><b>Forking:</b> Occurs when the programmer wants to reuse or rewrite a part of the software but the new
+                version is expected to evolve independently from the first one. For instance, a programmer would like
+                to change the core of a software incrementally in order to test new hardware features without compromising
+                the actual working software. Therefore, he can duplicate the main code and incrementally build up the newer
+                version. Eventually, both versions should be refactored together once everything is stable</li>
+                <li><b>Templating:</b> Occurs when some portion of code that acts as a template has to be duplicated and a
+                more abstract refactoring is not possible. This is may be due to constraints of the programing language.
+                For instance, this can be useful when programming in C as the language doesn't allow for OOP</li>
+                <li><b>Customization:</b> Occurs when for some reason, the original code cann't be modified or additional requirements
+                create the need for extension or modification. Such situations occur when, for example, programmers need to find a workaround
+                for a bug that can't be easily fixed by the team.</li>
+
+            </list>
+        </li>
+        <li><p>
+            Explain and illustrate the Long Method bad smell.
+        </p>
+            <p>check the <a href="https://refactoring.guru/smells/long-method">url</a></p>
+            <p>
+            A method should not consist of too many lines of code performing different calculations. The longer method is,
+                the more difficult to understand what the code does.
+            </p>
+            <p><b>Reasons for the problem</b></p>
+            <p> Like the hotel California, something is always being added to a method but nothing is ever taken out. Since
+            it's easier to write code than to read it, this "Smell" remains unnoticed until the method turns into an ugly, oversize beast.</p>
+            <p>Mentally, It's often harder to create a new method than to add to an existing one: "But it's just two lines, there's
+            no use in creating a whole method just for that. Which means that another line is added and then yet another, giving
+            birth to a tangle of spaghetti</p>
+            <p><b>Treatment</b></p>
+            <p>As a rule of thumb, if you feel the need to comment on something inside a method,
+            you should take this code and pull it in a new method. even a single line can and should be
+            split off into a separate method, if it requires explanations. And if the method has a descriptive name,
+            nobody will need to look at the code to see what it does.</p>
+            <list>
+                <li>To reduce the length of a method body, use Extract method</li>
+                <li>If local variables and parameters interfere with extracting a method,
+                use replace temp with query, introduce parameter object or preserve whole object.</li>
+                <li>If none of the previous recipes help, try moving the entire method to a separate object via Replace Method with Method Object</li>
+                <li>Conditional operators and loops are a good clue that code can be moved to a separate method. For conditionals, use Decompose Conditional. If loops are in the way,
+                try extract method.</li>
+            </list>
+            <p><b>Payoff:</b></p>
+            <list>
+                <li>Among all types of object-oriented code, classes with short methods live longest. The longer a method or function is, the harder it becomes to understand and maintain it.</li>
+                <li>In addition, long method offer the perfect hiding place for unwanted duplicate code.</li>
+            </list>
+            <p><b>Performance</b></p>
+            <p>Does an increase in the number of methods hurt performance, as many people claim? In almost all cases, the impact is so negligible that it's not even worth worrying about.
+            Plus, now that you have clear and understandable code, you're more likely to find truly effective methods for restructuring code and getting real performance gains if the need ever arises.</p>
+        </li>
+
+        <li><p>Explain and illustrate the Feature Envy bad smell.
+        </p>
+            <p><a href="https://sourcemaking.com/refactoring/smells/feature-envy"> url</a></p>
+            <p><b>Signs:</b> A method accesses the data of another object more than its own data</p>
+            <p><b>Reasons:</b> This smell may occur after fields are moved to a data class. If this is the case, you may want to move the operations on data ot this class as well.</p>
+            <p><b>Treatment:</b> As a basic rule, if things change at the same time, you should keep them in the same place. Usually, data and functions that use this data are changed together. But sometimes, behavior
+            is purposefully kept separate from the class that holds the data. THe usual advantage of this is the ability
+            dynamically change the behavior.</p>
+        </li>
+        <li><p>Explain and illustrate the Middle Man bad smell.
+        </p>
+            <p>
+                If a class only performs one action, delegating work to another class. The smell of the result can be overzealous
+                elimination of Message chains. In other cases, it can be result of the useful work of a class being gradually
+                move to other classes. The class remains as an empty shell that doesn't do anything other than delegate.
+            </p>
+        </li>
+        <li><p>Explain the Long Parameter List and Data Clumps bad smells in detail.
             Why are they bad smells?
-            Whats the relation between these bad smells?</li>
-        <li>
+            What's the relation between these bad smells?
+        </p>
+            <p>
+                Long parameter lists are hard to understand, with objects, we don't need to pass
+                everything a method needs. Use "Introduce Parameter Object" when you ca get data in one parameter
+                by making a request of an object you already know about.
+            </p>
+            <p>
+                Data Clumps appears when different parts of the code contains
+                identical groups of variables. As with the long parameter list, we can use
+                Introduce Parameter Object refactoring method. Introduce Parameter Object groups the list
+                of parameters that naturally go together in an object.
+            </p>
+            <p>Relation: Removing the data clumps bad smell can also remove the long parameter list bad smell at the
+            same time. As the data clumps in question may be the parameters of the Long Parameter List.
+            </p>
+            <p>see <a href="https://sourcemaking.com/refactoring/smells/long-parameter-list">long parameter</a> and <a href="https://sourcemaking.com/refactoring/smells/data-clumps">Data Clumps</a></p>
+        </li>
+
+        <li><p>
             Explain and illustrate what “coupling” is.
             Should we strive for loose coupling or tight coupling?
-            What bad smell describes a situation that violates this principle? Name and explain at least one.</li>
-        <li>Explain and illustrate what “cohesion” is.
-            Should we strive for low cohesion or high cohesion?
-            What bad smell describes a situation that violates this principle? Name and explain at least one.</li>
-        <li>Some bad smells are based on the principle that “things that change together should go together”.
-            Explain two such bad smells, and the above principle on which they are based, in detail.
+            What bad smell describes a situation that
+            violates this principle? Name and explain at least one.
+        </p>
+            <p>Coupling is the degree to which different software components or modules depend on each other. We should strive for loose coupling as tight coupling usually means that modifying one particular component requreis modifying many other components that depend on it. Good quality software should have a low amount of coupling.
+            </p>
+            <p>The Inappropriate intimacy and Feature Envy violate the rule.</p>
+            <note >
+                Inappropriate Intimacy: Pairs of classes that know too much about each other's private details, or subclasses
+                that know more about their parents.
+            </note>
         </li>
-        <li>
-            Name and explain at least one bad smell that explains a problem related to bad use of inheritance.</li>
-        <li>
-            When talking about “Comments” in the bad smells theory session, it was stated that comments are sometimes just there because the code is bad. Can you give an example of this and how such comments could become superfluous simply by refactoring the code?</li>
+        <li><p>Explain and illustrate what “cohesion” is.
+            Should we strive for low cohesion or high cohesion?
+            What bad smell describes a
+            situation that violates this principle? Name and explain at
+            least one.
+        </p>
+            <p>
+                Cohesion is the degree to which the elements within a software module belong together.
+                It is the degree to which all elements directed towards performing a single task are contained
+                in the component. Basically, cohesion is the internal glue that keeps the module together. We should
+                strive for high cohesion, as low cohesion usually implies that the code is less
+                understandable. A good software design should have high cohesion.
+                A bad smell that violates this principle could be the Feature Envy. A method accesses the data of another
+                object more than its own data. This means that the method mau not belonging to the correct class.
+            </p>
+        </li>
+        <li><p>Some bad smells are based on the principle that “things that
+            change together should go together”.
+            Explain two such bad smells, and the above principle on which they are based, in detail.
+        </p>
+            <list>
+                <li>Feature Envy: Occurs when a method seems more interested in a class other than the one it actually isi in.
+                For example, when a method invokes too many times methods on another object to calculate some values.</li>
+                <li>Shotgun surgery: is the phenomenon than when making one kind of change requires making many small changes to a lot of
+                different classes. Not only is this is a lot of work, it can also be hard to find all changes needed and thus
+                important changes may be missed.</li>
+            </list>
+        </li>
+        <li><p>
+            Name and explain at least one bad smell that explains a problem
+            related to bad use of inheritance.
+        </p>
+            <list>
+                <li>Code duplication</li>
+                <li>Large class</li>
+                <li>Lazy class</li>
+                <li>Inappropriate intimacy</li>
+                <li>Shotgun surgery</li>
+                <li>Classification: A bad use of inheritance is when you use it too much and it obfuscates the code. If you have message chains, or a useless middle man, it mey be because
+                your hierarchy stinks, so either rework or cut classes. Inheritance should not introduce new problems.</li>
+                <li>Refused Bequest: When a subclass ignores and doesn't need most of the functionality provided by its super class. Sign of bad inheritance because
+                it creates confusion and problems. To rework, create a new sibling class and use push down method/field to push all unused methods/fields to the sibling.</li>
+                <li>Comments</li>
+            </list>
+        </li>
+
+        <li><p>
+            When talking about “Comments” in the bad smells theory session, it was stated that comments are sometimes just there
+            because the code is bad. Can you give an example of this and how such comments could become superfluous simply
+            by refactoring the code?
+        </p>
+            <p>Comments are usually crated with the best of intentions, when the author realizes
+            that his or her code is ot intuitive or obvious. In such case, comments are like a deodorant masking
+            the smell of fishy code that could be improved.</p>
+            <note>The best comments is a good name for a method or class</note>
+            <p>If yo feel that a code fragment cann't be understood without comments, try to change the code structure in a way that makes comments unnecessary.</p>
+            <p><b>Treatment</b></p>
+            <list>
+                <li>if a comment is intended to explain a complex expression, the expressoin should be split into understandable sub-expressions using extract variable.</li>
+                <li>If a comment explains a section of code, this section can be turned into a separate method via extract method. The name of the new method can be taken form the comment text itself.</li>
+                <li>If a method has already been extracted, but comments are still necessary to explain what the method does,
+                give the method a self-explanatory name, Use Rename Method for this</li>
+                <li>If you need to assert rules about a state that is necessary for the system to work, use introduce assertion.</li>
+            </list>
+            <warning>
+                Too many comments make code becomes less intuitive abd less obvious.
+            </warning>
+        </li>
 
     </list>
 </topic>
